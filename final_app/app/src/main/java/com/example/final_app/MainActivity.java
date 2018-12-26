@@ -180,21 +180,34 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void setup() {
+        Button btnSend = (Button) findViewById(R.id.btnSend);
+        Button btnSend_ = (Button) findViewById(R.id.btnSend_2);
 
-        if (temp.equals("NUM_01")||temp.equals("NUM_02")){
-            Button btnSend_ = (Button) findViewById(R.id.btnSend_2); //데이터 전송
+        if (temp.length != null && temp.equals("NUM_01")){
+
             btnSend_.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
                     bt.send("L", true);
                 }
             });
-
-            Button btnSend = (Button) findViewById(R.id.btnSend); //데이터 전송
             btnSend.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
                     bt.send("O", true);
                 }
             });
+            else if (temp.length !=0 &&temp.equals("NUM_02"))
+            {
+                btnSend_.setOnClickListener(new View.OnClickListener() {
+                    public void onClick(View v) {
+                        bt.send("N", true);
+                    }
+                });
+                btnSend.setOnClickListener(new View.OnClickListener() {
+                    public void onClick(View v) {
+                        bt.send("Y", true);
+                    }
+                });
+            }
 
         }
 
